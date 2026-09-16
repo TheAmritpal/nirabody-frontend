@@ -1,1 +1,1 @@
-export const apiUrl = import.meta.env.VITE_API_URL || 'http://nirabody.in/api'
+export const apiUrl = import.meta.env.VITE_API_URL || 'https://nirabody.in/api'
