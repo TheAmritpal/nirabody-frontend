@@ -1,2 +1,1 @@
-export const apiUrl= 'http://localhost:8000/api'
-// export const apiUrl= 'https://fwice.in/admin/api'
+export const apiUrl = import.meta.env.VITE_API_URL || 'http://nirabody.in/api'
