@@ -1,10 +1,7 @@
 
-
 import { useContext, useState, useEffect } from "react";
-
 import { Navigate } from "react-router-dom";
 import { AdminAuthContext } from "../context/AdminAuth";
-
 
 export const AdminRequireAuth = ({ children }) => {
     const { user, isAuthenticated } = useContext(AdminAuthContext);
@@ -15,12 +12,20 @@ export const AdminRequireAuth = ({ children }) => {
     }, []);
 
     if (isChecking) {
-        return "loading";
+        return null;
     }
 
     if (!user || !isAuthenticated()) {
-        return <Navigate to="/backend/login" replace state={{ from: window.location.pathname }} />;
+        return (
+            <Navigate
+                to="/backend/login"
+                replace
+                state={{ from: window.location.pathname }}
+            />
+        );
     }
 
     return children;
 };
+
+export default AdminRequireAuth;
